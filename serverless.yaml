@@ -9,5 +9,5 @@ provider:
   lambdaHashingVersion: 20201221
 
 functions:
- slifer:
+ create-repository:
     handler: app/app.run
