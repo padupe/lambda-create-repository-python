@@ -23,9 +23,9 @@ def run(event, context):
     if check_repository(repository_title).status_code == 404:
         if get_team_by_name(team_owner).status_code == 200:
             create_repository(repository_title, team_owner, private)
-            add_team(repository_title, team_owner, "push")
-            add_team(repository_title, f"{team_owner}-admin", "admin")
-            add_team(repository_title, DEPLOYS_TEAM, "admin")
+            add_team(repository_title, team_owner, permission_level='push')
+            add_team(repository_title, f"{team_owner}-admin", permission_level='admin')
+            add_team(repository_title, DEPLOYS_TEAM, permission_level='admin')
             
             return {
                 "status": 201,
@@ -63,11 +63,13 @@ def get_team_by_name(team_name):
 
 ## Create Repository
 def create_repository(repository_name, team_owner, private): 
+    repository = format_string(repository_name)
+    
     team_format = format_string(team_owner)
     team = get_team_by_id(team_format)
     
     payload = {
-        "name": repository_name,
+        "name": repository,
         "description": "Repository create with Lambda",
         "team_id": team,
         "private": private
@@ -99,7 +101,7 @@ def check_repository(repository_name):
 
 
 ## Add Team an Repository
-def add_team(repository_name, team_slug, permission_level):
+def add_team(repository_name, team_slug, permission_level=str):
     repository = format_string(repository_name)
     team = format_string(team_slug)
     
@@ -107,9 +109,10 @@ def add_team(repository_name, team_slug, permission_level):
         "permission": permission_level
     }
     
-    data = json.loads(payload)
+    data = json.dumps(payload)
+    print(f'payload: {data}')
     
-    result = requests.put(f'{GITURL}/orgs/{ORGANIZATION}/teams/{team}/{ORGANIZATION}/{repository}', headers=HEADER, data=data)
+    result = requests.put(f'{GITURL}/orgs/{ORGANIZATION}/teams/{team}/repos/{ORGANIZATION}/{repository}', headers=HEADER, data=data)
     
     if result.status_code != 204:
         error_data = result.text
