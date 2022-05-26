@@ -28,7 +28,7 @@ def run(event, context):
             add_team(repository_title, DEPLOYS_TEAM, "admin")
             
             return {
-                "status": 200,
+                "status": 201,
                 "message": f'Repository {repository_title} created Successfully'            
                 }
         
@@ -127,7 +127,7 @@ def add_team(repository_name, team_slug, permission_level):
 ## Create README.md
 def create_readme(title, description, bussiness_context, requirements=list, integration=None, owner=None,):
     
-    owner_link = owner.lower()
+    owner_link = format_string(owner)
     
     markdow = MdUtils(file_name="README.md", title="README of Project.")
     
@@ -153,7 +153,7 @@ def create_readme(title, description, bussiness_context, requirements=list, inte
     # Owner
     if owner != None:
         markdow.new_header(level=2, title="Squad Owner")
-        markdow.new_line(markdow.new_inline_link(link=string("https://github.com/orgs/" + ORGANIZATION +"/teams/" + owner_link), text=owner))
+        markdow.new_line(markdow.new_inline_link(link=f"https://github.com/orgs/{ORGANIZATION}/teams/{owner_link}", text=owner))
         
     readme = markdow.create_md_file()
     
