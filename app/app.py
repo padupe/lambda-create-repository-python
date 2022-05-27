@@ -19,6 +19,10 @@ def run(event, context):
     repository_title = event["repository_title"]
     private = event["private"]
     team_owner = event["team_owner"]
+    description = event["description"]
+    business_context = event["business_context"]
+    requirementes = event["requirements"]
+    integration = event["integration"]
     
     if check_repository(repository_title).status_code == 404:
         if get_team_by_name(team_owner).status_code == 200:

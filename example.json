@@ -1,6 +1,13 @@
 {
     "repository_title": "Repository-Test",
     "team_owner": "lambda-test",
-    "private": true
+    "private": true,
+    "description": "An repository test.",
+    "business_context": "Repository test with Lambda",
+    "requirements": [
+        "Nodejs",
+        "Docker"
+    ],
+    "integration": "Life-Cycle"
 }
 
