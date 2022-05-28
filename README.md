@@ -7,6 +7,26 @@ In addition, it adds the `"deploys"` and `"{Owner-Squad}-ADMIN"` teams of the Pr
 ## Business Context
 Team Tech <-> SRE <-> GitHub
 
+## Payload Example
+```json
+{
+    "repository_title": "Repository-Test",
+    "team_owner": "lambda-test",
+    "private": true,
+    "description": "An repository test.",
+    "business_context": "Repository test with Lambda",
+    "requirements": [
+        "Nodejs",
+        "Docker"
+    ],
+    "integration": [
+        "Life-Cycle",
+        "Order-Service"
+    ]
+}
+```
+> NOTE: The "private" parameter can be passed as an empty string, as by default this property is "true".
+
 ## Status Code
 - **201**
     - Repository Created
