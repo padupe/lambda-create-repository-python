@@ -8,6 +8,9 @@
         "Nodejs",
         "Docker"
     ],
-    "integration": "Life-Cycle"
+    "integration": [
+        "Life-Cycle",
+        "Order-Service"
+    ]
 }
 
