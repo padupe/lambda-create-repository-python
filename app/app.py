@@ -31,6 +31,12 @@ def run(event, context):
             add_team(repository_title, f"{team_owner}-admin", permission_level='admin')
             add_team(repository_title, DEPLOYS_TEAM, permission_level='admin')
             
+            if check_repository(repository_title).status_code == 200:
+                create_readme(repository_title, description, business_context, team_owner, requirementes, integration)
+                
+                test_file = open("README.md", "rb")
+                upload_readme_to_github(repository_title, test_file)
+            
             return {
                 "status": 201,
                 "message": f'Repository {repository_title} created Successfully'            
@@ -66,11 +72,14 @@ def get_team_by_name(team_name):
     return team
 
 ## Create Repository
-def create_repository(repository_name, team_owner, private): 
+def create_repository(repository_name, team_owner, private=None): 
     repository = format_string(repository_name)
     
     team_format = format_string(team_owner)
     team = get_team_by_id(team_format)
+    
+    if private == None:
+        private = True
     
     payload = {
         "name": repository,
@@ -114,7 +123,6 @@ def add_team(repository_name, team_slug, permission_level=str):
     }
     
     data = json.dumps(payload)
-    print(f'payload: {data}')
     
     result = requests.put(f'{GITURL}/orgs/{ORGANIZATION}/teams/{team}/repos/{ORGANIZATION}/{repository}', headers=HEADER, data=data)
     
@@ -132,42 +140,89 @@ def add_team(repository_name, team_slug, permission_level=str):
 
 
 ## Create README.md
-def create_readme(title, description, bussiness_context, requirements=list, integration=None, owner=None,):
+def create_readme(title, description, bussiness_context, owner, requirements=list, integration=None):
     
     owner_link = format_string(owner)
+    repository_title = format_string(title)
     
-    markdow = MdUtils(file_name="README.md", title="README of Project.")
+    markdow = MdUtils(file_name="README-test.md")
     
-    markdow.new_header(level=1, title=title)
+    markdow.new_header(level=1, title=repository_title)
     
     # Description
     markdow.new_header(level=2, title="Description")
-    markdow.new_paragraph(description)
+    markdow.new_line(f'{description}\n')
     
     # Bussiness Context
     markdow.new_header(level=2, title="Bussiness Context")
-    markdow.new_paragraph(bussiness_context)
+    markdow.new_line(f'{bussiness_context}\n')
     
     # Requirements
-    markdow.new_header(level=2, title="Requirements")
-    markdow.new_paragraph(requirements)
+    if requirements != None:
+        markdow.new_header(level=2, title="Requirements")
+        # markdow.new_list(items=[requirements], marked_with="-")
+        for reqs in requirements:
+            markdow.new_line(f'- {reqs}')
     
+        markdow.new_line(f'')
+        
     # Integration
     if integration != None:
         markdow.new_header(level=2, title="Integrations")
-        markdow.new_paragraph(integration)
+        
+        for app_service in integration:
+            markdow.new_line(f'- {app_service}')
+            
+        markdow.new_line(f'')
         
     # Owner
-    if owner != None:
-        markdow.new_header(level=2, title="Squad Owner")
-        markdow.new_line(markdow.new_inline_link(link=f"https://github.com/orgs/{ORGANIZATION}/teams/{owner_link}", text=owner))
+    markdow.new_header(level=2, title="Squad Owner")
+    markdow.new_line(markdow.new_inline_link(link=f"https://github.com/orgs/{ORGANIZATION}/teams/{owner_link}", text=owner))
         
-    readme = markdow.create_md_file()
+    readme_file = markdow.create_md_file()
     
-    return readme
+    return readme_file
 
 def format_string(parameter):
     lower_string = parameter.replace(" ", "-")
     result = lower_string.lower()
     
-    return result 
+    return result
+
+def encode_file_to_base64(file):
+    data = file.read()
+    encoded = base64.b64encode(data)
+    print(f'FN "encode_file": {encoded}')
+    return encoded
+
+def upload_readme_to_github(repository, readme_file):
+    readme = encode_file_to_base64(readme_file)
+    
+    path = readme_file if not 'README.md' else 'README.md'
+    print(f'path: {path}')
+    
+    
+    payload = {
+        "message": "Upload README.md",
+        "content": str(readme)
+    }
+    
+    data = json.dumps(payload)
+    
+    print(f'payload after json.dumps(): {data}')
+    
+    result = requests.put(f'{GITURL}/repos/{ORGANIZATION}/{repository}/contents/{path}', headers=HEADER, data=data)
+    
+    print(f'RESULT =====> {result}')
+    
+    if result.status_code != 201:
+        error_data = result.text
+        error_data = json.loads(error_data)
+        
+        return {
+            "status": result.status_code,
+            "message": f"{error_data['message']}",
+            "documentation_url": f"{error_data['documentation_url']}."          
+        }
+    
+    return result
