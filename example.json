@@ -2,6 +2,7 @@
     "repository_title": "Repository-Test",
     "team_owner": "lambda-test",
     "private": true,
+    "about": "Repository create with Lambda",
     "description": "An repository test.",
     "business_context": "Repository test with Lambda",
     "requirements": [
@@ -13,4 +14,3 @@
         "Order-Service"
     ]
 }
-
