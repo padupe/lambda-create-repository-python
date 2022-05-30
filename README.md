@@ -17,7 +17,7 @@ Team Tech <-> SRE <-> GitHub
 |:---:|:---:|:---:|
 |`repository_title`|`string`| `true`|
 |`team_owner`|`string`|`true`|
-|`private`|`boolean`|`false`|
+|`private`|`boolean`|`true`|
 |`about`|`string`|`true`|
 |`description`|`string`|`true`|
 |`business_context`|`string`|`true`|
