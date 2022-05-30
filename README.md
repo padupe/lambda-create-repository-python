@@ -29,7 +29,7 @@ Team Tech <-> SRE <-> GitHub
 > NOTE: The "private" parameter can be passed as an empty string, as by default this property is "true".
 
 
-### Payload Example
+### Payload Example (Complete)
 ```json
 {
     "repository_title": "Repository-Test",
@@ -49,6 +49,20 @@ Team Tech <-> SRE <-> GitHub
 }
 ```
 > NOTE: The "private" parameter can be passed as an empty string, as by default this property is "true".
+
+### Payload Example (Simple)
+```json
+{
+    "repository_title": "Repository-Test-Two",
+    "team_owner": "lambda-test",
+    "private": "",
+    "about": "Repository create with Lambda",
+    "description": "An repository test.",
+    "business_context": "Repository test with Lambda",
+    "requirements": [],
+    "integration": []
+}
+```
 
 ## Status Code
 - **201**
