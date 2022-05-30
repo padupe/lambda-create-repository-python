@@ -1,3 +1,5 @@
 node_modules/
 package-lock.json
+README-created.md
+test.py
 .env
