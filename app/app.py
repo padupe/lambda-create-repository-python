@@ -6,7 +6,7 @@ import base64
 import os
 
 GITURL = "https://api.github.com"
-PAT_USER = "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"
+PAT_USER = ""
 HEADER = {"Authorization": f"Bearer {PAT_USER}",
           "Content-Type": "application/vnd.github.v3+json"}
 # ORGANIZATION = "madeiramadeirabr"
