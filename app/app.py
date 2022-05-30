@@ -158,7 +158,7 @@ def create_readme(title, description, bussiness_context, owner, requirements=lis
     markdown.new_line(f'{bussiness_context}\n')
     
     # Requirements
-    if requirements != None:
+    if len(requirements) != 0:
         markdown.new_header(level=2, title="Requirements")
         # markdown.new_list(items=[requirements], marked_with="-")
         for reqs in requirements:
@@ -167,7 +167,7 @@ def create_readme(title, description, bussiness_context, owner, requirements=lis
         markdown.new_line(f'')
         
     # Integration
-    if integration != None:
+    if len(integration) != 0:
         markdown.new_header(level=2, title="Integrations")
         
         for app_service in integration:
