@@ -157,6 +157,10 @@ def create_readme(title, description, bussiness_context, owner, requirements=lis
     markdown.new_header(level=2, title="Bussiness Context")
     markdown.new_line(f'{bussiness_context}\n')
     
+    # Owner
+    markdown.new_header(level=2, title="Squad Owner")
+    markdown.new_line(markdown.new_inline_link(link=f"https://github.com/orgs/{ORGANIZATION}/teams/{owner_link}", text=owner))
+    
     # Requirements
     if len(requirements) != 0:
         markdown.new_header(level=2, title="Requirements")
@@ -173,11 +177,7 @@ def create_readme(title, description, bussiness_context, owner, requirements=lis
         for app_service in integration:
             markdown.new_line(f'- {app_service}')
             
-        markdown.new_line(f'')
-        
-    # Owner
-    markdown.new_header(level=2, title="Squad Owner")
-    markdown.new_line(markdown.new_inline_link(link=f"https://github.com/orgs/{ORGANIZATION}/teams/{owner_link}", text=owner))
+        markdown.new_line(f'')  
         
     readme_file = markdown.create_md_file()
     
