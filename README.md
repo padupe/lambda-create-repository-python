@@ -1,4 +1,41 @@
+![img](https://github.com/padupe/lambda-create-repository-python/blob/main/assets/banner_project.png)
 # lambda-create-repository-python
+
+<div align="center">
+
+[![Technology][python-image]][python-url]
+[![Technology][aws-lambda-image]][aws-lambda-url]<br>
+
+![img](https://img.shields.io/badge/python-v3.8-blue)
+![img](https://img.shields.io/badge/mdutils-v1.3.1-blue)
+![img](https://img.shields.io/badge/requests-v2.25.1-blue)
+
+</div>
+
+[python-url]: https://www.python.org/
+[python-image]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
+
+[aws-lambda-url]: https://aws.amazon.com/pt/lambda/
+[aws-lambda-image]: https://img.shields.io/badge/aws.lambda-yellow?style=for-the-badge&logo=amazon&logoColor=black
+
+## Index
+<!--ts-->
+* [lambda-create-repository-python](#lambda-create-repository-python)
+    * [Index](#index)
+    * [Description](#description)
+    * [Flow](#flow)
+    * [Business Context](#bussiness-context)
+    * [Project Dependencies](#project-dependencies)
+    * [Payload](#payload)
+        * [Payload Structure](#payload-structure)
+        * [Payload Example (Complete)](#payload-example-complete)
+        * [Payload Example (Simple)](#payload-example-simple)
+    * [Status Code](#status-code)
+    * [Local Development](#local-development)
+        * [Requirements](#requirements)
+        * [Step by Step](#step-by-step)
+
+<!--te-->
 
 ## Description
 Creates a Repository on GitHub, using the service's API.
@@ -7,7 +44,7 @@ In addition, it adds the `"deploys"` and `"{Owner-Squad}-ADMIN"` teams of the Pr
 ## Flow
 ![img](https://github.com/padupe/lambda-create-repository-python/blob/main/docs/flow-lambda-create-repository.drawio.png)
 
-## Business Context
+## Bussiness Context
 Team Tech <-> SRE <-> GitHub
 
 ## Project Dependencies
@@ -80,14 +117,14 @@ Team Tech <-> SRE <-> GitHub
 - **500**
     - Error while running lambda: `{err}`
 
-### Local Development
+## Local Development
 
-#### Requirements:
+### Requirements:
 - CLI Serverless;
 - Pip3;
 - Python 3.8 =<.
 
-#### Step by Step
+### Step by Step
 1. Rename `serverless.yaml` to `serverles-prd.yaml`;
 
 2. Rename `serverless-local.yaml` to `serverless.yaml`;
@@ -102,4 +139,4 @@ serverless invoke local --function create-repository --path example.json
 ```
 
 **NOTE:**
-A repository will be created with the name `**repository-test**` in your organization.
+A repository will be created with the name **`repository-test`** in your organization.
