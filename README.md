@@ -5,7 +5,7 @@ Creates a Repository on GitHub, using the service's API.
 In addition, it adds the `"deploys"` and `"{Owner-Squad}-ADMIN"` teams of the Project Owner Squad and performs the dynamic creation of the `README.md`.
 
 ## Flow
-![img](https://github.com/padupe/lambda-create-repository-python/blob/main/docs/flow-lambda-create-repository.svg)
+![img](https://github.com/padupe/lambda-create-repository-python/blob/main/docs/flow-lambda-create-repository.drawio.png)
 
 ## Business Context
 Team Tech <-> SRE <-> GitHub
