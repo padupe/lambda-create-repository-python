@@ -130,9 +130,9 @@ Time Tech <-> SRE <-> GitHub
 
 2. Renomeie `serverless-local.yaml` para `serverless.yaml`;
 
-3. No diretório `configs`, no arquivo `constants.py`, insira um *Personal Access Token (PAT)* (Token de Acesso Pessoal) com privilégios de "Proprietário" da Organização (permissão para criar repositórios, vincular equipes, etc.) na constante `PAT_USER`;
+3. No diretório `configs`, no arquivo [`constants.py`](https://github.com/padupe/lambda-create-repository-python/blob/main/configs/constants.py), insira um *Personal Access Token (PAT)* (Token de Acesso Pessoal) com privilégios de "Proprietário" da Organização (permissão para criar repositórios, vincular equipes, etc.) na constante `PAT_USER`;
 
-4. No diretório `configs`, no arquivo `constants.py`, digite o nome da organização à qual você pertence na constante `ORGANIZATION`;
+4. No diretório `configs`, no arquivo [`constants.py`](https://github.com/padupe/lambda-create-repository-python/blob/main/configs/constants.py), digite o nome da organização à qual você pertence na constante `ORGANIZATION`;
 
 5. Rode o comando:
 ```
