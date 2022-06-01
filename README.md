@@ -45,7 +45,9 @@ In addition, it adds the `"deploys"` and `"{Owner-Squad}-ADMIN"` teams of the Pr
 ![img](https://github.com/padupe/lambda-create-repository-python/blob/main/docs/flow-lambda-create-repository.drawio.png)
 
 ## Bussiness Context
-Team Tech <-> SRE <-> GitHub
+Allow a dynamic management in the organization's repository creation process.<br>
+
+Team Tech <-> **Team responsible for managing GitHub in the Organization** <-> GitHub
 
 ## Project Dependencies
 - [mdutils](https://pypi.org/project/mdutils/ 'mdutils'): This Python package contains a set of basic tools that can help to create a markdown file while running a Python code;<br>
