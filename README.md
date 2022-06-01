@@ -70,9 +70,6 @@ Team Tech <-> SRE <-> GitHub
 
 </div>
 
-> NOTE: The "private" parameter can be passed as an empty string, as by default this property is "true".
-
-
 ### Payload Example (Complete)
 ```json
 {
@@ -107,6 +104,7 @@ Team Tech <-> SRE <-> GitHub
     "integration": []
 }
 ```
+> NOTE: The "private" parameter can be passed as an empty string, as by default this property is "true".
 
 ## Status Code
 - **201**
