@@ -4,8 +4,15 @@
 Creates a Repository on GitHub, using the service's API.
 In addition, it adds the `"deploys"` and `"{Owner-Squad}-ADMIN"` teams of the Project Owner Squad and performs the dynamic creation of the `README.md`.
 
+## Flow
+![img](https://github.com/padupe/lambda-create-repository-python/blob/main/docs/flow-lambda-create-repository.svg)
+
 ## Business Context
 Team Tech <-> SRE <-> GitHub
+
+## Project Dependencies
+- [mdutils](https://pypi.org/project/mdutils/ 'mdutils'): This Python package contains a set of basic tools that can help to create a markdown file while running a Python code;<br>
+- [requests](https://pypi.org/project/requests/ 'requests'): Requests is a simple HTTP library;<br>
 
 ## Payload
 
@@ -71,11 +78,28 @@ Team Tech <-> SRE <-> GitHub
     - Failure to find team `{team_owner}` at `{ORGANIZATION}`
     - Repository `{repository_title}` already exists at `{ORGANIZATION}`
 - **500**
-    - Internal Error Server
+    - Error while running lambda: `{err}`
 
 ### Local Development
 
-Run Lambda:
+#### Requirements:
+- CLI Serverless;
+- Pip3;
+- Python 3.8 =<.
+
+#### Step by Step
+1. Rename `serverless.yaml` to `serverles-prd.yaml`;
+
+2. Rename `serverless-local.yaml` to `serverless.yaml`;
+
+3. In the `configs` directory, in the `constants.py` file, enter a Personal Access Token (PAT) with Organization "Owner" privileges (permission to create repositories, link teams, etc.) in the `PAT` constant;
+
+4. In the `configs` directory, in the `constants.py` file, enter the name of the organization you belong to in the `ORGANIZATION` constant.
+
+5. Run:
 ```
 serverless invoke local --function create-repository --path example.json
 ```
+
+**NOTE:**
+A repository will be created with the name `**repository-test**` in your organization.
