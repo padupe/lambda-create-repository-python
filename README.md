@@ -1,5 +1,6 @@
 ![img](https://github.com/padupe/lambda-create-repository-python/blob/main/assets/banner_project.png)
 # lambda-create-repository-python
+> Check the Documentation in pt-BR by clicking 🇧🇷 [here](https://github.com/padupe/lambda-create-repository-python/blob/main/docs/README-pt-BR.md 'here').
 
 <div align="center">
 
@@ -34,7 +35,6 @@
     * [Local Development](#local-development)
         * [Requirements](#requirements)
         * [Step by Step](#step-by-step)
-
 <!--te-->
 
 ## Description
@@ -49,7 +49,7 @@ Team Tech <-> SRE <-> GitHub
 
 ## Project Dependencies
 - [mdutils](https://pypi.org/project/mdutils/ 'mdutils'): This Python package contains a set of basic tools that can help to create a markdown file while running a Python code;<br>
-- [requests](https://pypi.org/project/requests/ 'requests'): Requests is a simple HTTP library;<br>
+- [requests](https://pypi.org/project/requests/ 'requests'): Requests is a simple HTTP library.<br>
 
 ## Payload
 
@@ -59,7 +59,7 @@ Team Tech <-> SRE <-> GitHub
 
 |Parameter|Value|Required|
 |:---:|:---:|:---:|
-|`repository_title`|`string`| `true`|
+|`repository_title`|`string`|`true`|
 |`team_owner`|`string`|`true`|
 |`private`|`boolean`|`true`|
 |`about`|`string`|`true`|
@@ -118,7 +118,7 @@ Team Tech <-> SRE <-> GitHub
 ## Local Development
 
 ### Requirements:
-- CLI Serverless;
+- CLI [Serverless](https://www.serverless.com/framework/docs/getting-started);
 - Pip3;
 - Python 3.8 =<.
 
@@ -129,7 +129,7 @@ Team Tech <-> SRE <-> GitHub
 
 3. In the `configs` directory, in the `constants.py` file, enter a Personal Access Token (PAT) with Organization "Owner" privileges (permission to create repositories, link teams, etc.) in the `PAT_USER` constant;
 
-4. In the `configs` directory, in the `constants.py` file, enter the name of the organization you belong to in the `ORGANIZATION` constant.
+4. In the `configs` directory, in the `constants.py` file, enter the name of the organization you belong to in the `ORGANIZATION` constant;
 
 5. Run:
 ```
