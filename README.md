@@ -92,7 +92,7 @@ Team Tech <-> SRE <-> GitHub
 
 2. Rename `serverless-local.yaml` to `serverless.yaml`;
 
-3. In the `configs` directory, in the `constants.py` file, enter a Personal Access Token (PAT) with Organization "Owner" privileges (permission to create repositories, link teams, etc.) in the `PAT` constant;
+3. In the `configs` directory, in the `constants.py` file, enter a Personal Access Token (PAT) with Organization "Owner" privileges (permission to create repositories, link teams, etc.) in the `PAT_USER` constant;
 
 4. In the `configs` directory, in the `constants.py` file, enter the name of the organization you belong to in the `ORGANIZATION` constant.
 
