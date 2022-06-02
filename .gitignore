@@ -3,3 +3,4 @@ package-lock.json
 README-created.md
 test.py
 .env
+.pytest_cache/
