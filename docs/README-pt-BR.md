@@ -9,6 +9,7 @@
 ![img](https://img.shields.io/badge/python-v3.8-blue)
 ![img](https://img.shields.io/badge/mdutils-v1.3.1-blue)
 ![img](https://img.shields.io/badge/requests-v2.25.1-blue)
+![img](https://img.shields.io/badge/pytest-v7.1.2-blue)
 
 </div>
 
