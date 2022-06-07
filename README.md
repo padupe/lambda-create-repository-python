@@ -1,4 +1,12 @@
 ![img](https://github.com/padupe/lambda-create-repository-python/blob/main/assets/banner_project.png)
+<div align="center">
+
+![GitHub Repo stars](https://img.shields.io/github/stars/padupe/lambda-create-repository-python?color=blue)
+![GitHub forks](https://img.shields.io/github/forks/padupe/lambda-create-repository-python?color=blue)
+![GitHub last commit](https://img.shields.io/github/last-commit/padupe/lambda-create-repository-python?color=blue)
+
+</div>
+
 # lambda-create-repository-python
 > Check the Documentation in pt-BR by clicking 🇧🇷 [here](https://github.com/padupe/lambda-create-repository-python/blob/main/docs/README-pt-BR.md 'here').
 
