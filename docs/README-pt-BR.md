@@ -136,6 +136,8 @@ Time Tech <-> **Time responsável pelo gerenciamento do GitHub na Organização*
 
 4. No diretório `configs`, no arquivo [`constants.py`](https://github.com/padupe/lambda-create-repository-python/blob/main/configs/constants.py), digite o nome da organização à qual você pertence na constante `ORGANIZATION`;
 
+    4.1. Se a sua organização não possuir times auxiliares (`"{Owner-Squad}-ADMIN"`, `"deploys"`, etc), comente (ou remova) as linhas 21 e 22 do arquivo [`app.py`](https://github.com/padupe/lambda-create-repository-python/blob/main/app/app.py).
+
 5. Rode o comando:
 ```
 serverless invoke local --function create-repository --path example.json
