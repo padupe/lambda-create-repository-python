@@ -141,6 +141,8 @@ Team Tech <-> **Team responsible for managing GitHub in the Organization** <-> G
 
 4. In the `configs` directory, in the [`constants.py`](https://github.com/padupe/lambda-create-repository-python/blob/main/configs/constants.py) file, enter the name of the organization you belong to in the `ORGANIZATION` constant;
 
+    4.1 If your organization does not have auxiliary teams (`"{Owner-Squad}-ADMIN"`, `"deploys"`, etc), comment out (or remove) lines 21 and 22 of the [`app.py`](https://github.com/padupe/lambda-create-repository-python/blob/main/app/app.py) file.
+
 5. Run:
 ```
 serverless invoke local --function create-repository --path example.json
